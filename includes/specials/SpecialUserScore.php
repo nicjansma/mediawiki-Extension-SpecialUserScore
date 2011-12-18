@@ -27,6 +27,9 @@
 # I changed the SQL (also changed SQL to use SQL aliases and FROM clause) statement and modifed
 # formatResult to report n Edits on m pages
 # I thought it would be useful to know how many actual pages were being edited...
+#
+# 12-18-2011 Nic Jansma
+# Fixed to work with MediaWiki 1.18.0
 
 class UserScorePage extends QueryPage {
         protected $requestedNamespace = false;
