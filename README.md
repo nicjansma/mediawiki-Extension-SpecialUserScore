@@ -1,6 +1,7 @@
 # Installation
 
 Copy the following files into their respective directories:
+
 1. `extensions/SpecialUserScore.php`
 2. `includes/specials/SpecialUserScore.php`
 
