@@ -3,7 +3,7 @@
 $messages = array();
 
 $messages['en'] = array(
-        'userscore' => 'UserScore',
+        'userscore' => 'User Score',
 );
 
 ?>
