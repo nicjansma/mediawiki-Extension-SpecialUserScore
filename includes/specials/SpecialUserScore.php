@@ -1,5 +1,5 @@
 <?php
- 
+
 #
 # SpecialUserScore MediaWiki extension
 #
@@ -24,78 +24,66 @@
 #
 # Revisions
 # 5-12-2006 MPalmer
-# I changed the SQL (also changed SQL to use SQL aliases and FROM clause) statement and modifed 
+# I changed the SQL (also changed SQL to use SQL aliases and FROM clause) statement and modifed
 # formatResult to report n Edits on m pages
 # I thought it would be useful to know how many actual pages were being edited...
 
-require_once("QueryPage.php");
- 
 class UserScorePage extends QueryPage {
- 
-        function getName() {
-                return "UserScore";
+        protected $requestedNamespace = false;
+
+        function __construct( $name = 'UserScore' ) {
+                parent::__construct( $name );
         }
- 
+
         function isExpensive() {
+                return true;
+        }
+
+        function isSyndicated() {
                 return false;
         }
- 
-        function isSyndicated() { return false; }
- 
-        function getPageHeader() {
-                # return "Es gibt folgende Rangfolge der aktiven Benutzer: <br />\n"; #German
-         return "The most active users are, in order: <br />\n"; #English
 
-        }
- 
-        function getSQL() {
-                $NScat = NS_CATEGORY;
-                $dbr =& wfGetDB( DB_SLAVE );
-                $user= $dbr->tableName ('user');
-                $revision = $dbr->tableName ('revision');
-                $page = $dbr->tableName ('page');
-                $s= "
-                SELECT
-                  COUNT(wr.rev_id) as value,
-                  COUNT(DISTINCT wr.rev_page) as page_value,
-                  wu.user_name as name,
-                  wu.user_real_name as real_name
-                FROM
-                  $user wu,
-                  $revision wr,
-                  $page wp
-                WHERE
-                      wu.user_id = wr.rev_user
-                  and wp.page_id = wr.rev_page
-                  and wp.page_namespace = 0
-                  GROUP BY wu.user_name";
- 
-                return $s;
-        }
- 
         function sortDescending() {
                 return true;
         }
- 
+
+        function getQueryInfo() {
+                return array (
+                        'tables' => array ( 'user', 'revision', 'page' ),
+                        'fields' => array ( 'COUNT(rev_id) as value',
+                                            'COUNT(DISTINCT rev_page) as page_value',
+                                            'user_name as name' ),
+                        'conds' => array ( 'user_id = rev_user',
+                                           'page_id = rev_page',
+                                           'page_namespace = 0' ),
+                        'options' => array( 'GROUP BY' => 'user_name' )
+                );
+        }
+
+        function getOrderFields() {
+                return array( 'value' );
+        }
+
         function formatResult( $skin, $result ) {
                 global $wgContLang;
- 
+
                 $title = Title::makeTitle( NS_USER, $result->name );
-                $real_name  = $result->real_name ;
-                $plink = $skin->makeLinkObj( $title, $title->getText() );
-                $nl= $result->value . " Edits on " . $result->page_value . " pages";
-                $nlink = $skin->makeKnownLink(
-                                $wgContLang->specialPage( 'Contributions' ),
-                                $nl,
-                                'target=' . $result->name );
-                return "$plink $real_name ($nlink)";
+                $userLink = $skin->makeLinkObj( $title, $title->getText() );
+
+                $contribLinkText = $result->value . " edits on " . $result->page_value . " pages";
+                $contribLink = Linker::linkKnown(
+                                SpecialPage::getTitleFor( 'Contributions' ),
+                                $contribLinkText,
+                                array(),
+                                array( 'target' => $result->name ) );
+                return "$userLink ($contribLink)";
         }
 }
- 
+
 function wfSpecialUserScore() {
         list( $limit, $offset ) = wfCheckLimits();
         $cap = new UserScorePage();
-        return $cap->doQuery( $offset, $limit );
+        return $cap->execute(array());
 }
 
 ?>
