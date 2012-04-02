@@ -25,3 +25,7 @@ Version 2.0 2011-12-18 (Nic Jansma):
 Version 2.0.1 2011-12-18 (Nic Jansma)
 
 * Following best practices for Special page extensions, all files are now placed in `extensions/SpecialUserScore/` (nothing needs to be added to `includes/specials/`)
+
+Version 2.1 2012-04-02 (Nic Jansma)
+
+* Added hook and to register page with $wgQueryPages and updated the query so it works cached in $wgMiserMode

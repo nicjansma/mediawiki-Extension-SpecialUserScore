@@ -24,7 +24,8 @@ class UserScorePage extends QueryPage {
                         'tables' => array ( 'user', 'revision', 'page' ),
                         'fields' => array ( 'COUNT(rev_id) as value',
                                             'COUNT(DISTINCT rev_page) as page_value',
-                                            'user_name as name' ),
+                                            'user_name as title',
+                                            NS_USER . ' as namespace' ),
                         'conds' => array ( 'user_id = rev_user',
                                            'page_id = rev_page',
                                            'page_namespace = 0' ),
@@ -39,7 +40,7 @@ class UserScorePage extends QueryPage {
         function formatResult( $skin, $result ) {
                 global $wgContLang;
 
-                $title = Title::makeTitle( NS_USER, $result->name );
+                $title = Title::makeTitle( NS_USER, $result->title );
                 $userLink = $skin->makeLinkObj( $title, $title->getText() );
 
                 $contribLinkText = $result->value . " edits on " . $result->page_value . " pages";
@@ -47,7 +48,7 @@ class UserScorePage extends QueryPage {
                                 SpecialPage::getTitleFor( 'Contributions' ),
                                 $contribLinkText,
                                 array(),
-                                array( 'target' => $result->name ) );
+                                array( 'target' => $result->title ) );
                 return "$userLink ($contribLink)";
         }
 }

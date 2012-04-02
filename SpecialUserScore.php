@@ -24,13 +24,7 @@
 #
 # Revisions
 # ---------
-# 5-12-2006 MPalmer
-# I changed the SQL (also changed SQL to use SQL aliases and FROM clause) statement and modifed
-# formatResult to report n Edits on m pages
-# I thought it would be useful to know how many actual pages were being edited...
-#
-# 12-18-2011 Nic Jansma
-# (details in README.md)
+# (see README.md)
 #
 # Installation
 # ------------
@@ -50,11 +44,18 @@ $wgExtensionCredits['specialpage'][] = array(
         'author' => 'Mathias Feindt, Nic Jansma, et al.',
         'url' => 'http://www.mediawiki.org/wiki/Extension:SpecialUserScore',
         'description' => 'Special page for displaying user score as measured by number of contributions.',
-        'version' => '2.0.1'
+        'version' => '2.1'
 );
 
 $wgSpecialPages['UserScore'] = 'UserScorePage';
 
 $wgSpecialPageGroups['UserScore'] = 'users'; 
+
+$wgHooks['wgQueryPages'][] = 'wfSpecialUserScoreHook';
+
+function wfSpecialUserScoreHook( &$queryPages ) {
+        $queryPages[] = array( 'UserScorePage' , 'UserScore' );
+        return true;
+}
 
 ?>
