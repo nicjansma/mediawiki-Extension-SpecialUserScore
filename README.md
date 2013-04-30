@@ -1,8 +1,8 @@
 # Special:UserScore
 
-The SpecialUserScore extension for [http://www.mediawiki.org](MediaWiki) measures user scores by the number of contributions.
+The SpecialUserScore extension for [MediaWiki](http://www.mediawiki.org) measures user scores by the number of contributions.
 
-See the [http://www.mediawiki.org/wiki/Extension:SpecialUserScore](MediaWiki.org extension page) for details.
+See the [MediaWiki.org extension page](http://www.mediawiki.org/wiki/Extension:SpecialUserScore) for details.
 
 # Installation
 
