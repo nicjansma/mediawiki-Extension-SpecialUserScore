@@ -44,7 +44,7 @@ $wgExtensionCredits['specialpage'][] = array(
         'author' => 'Mathias Feindt, Nic Jansma, et al.',
         'url' => 'http://www.mediawiki.org/wiki/Extension:SpecialUserScore',
         'description' => 'Special page for displaying user score as measured by number of contributions.',
-        'version' => '2.1'
+        'version' => '2.1.1'
 );
 
 $wgSpecialPages['UserScore'] = 'UserScorePage';

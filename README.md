@@ -35,3 +35,7 @@ Version 2.0.1 2011-12-18 (Nic Jansma)
 Version 2.1 2012-04-02 (Nic Jansma)
 
 * Added hook and to register page with $wgQueryPages and updated the query so it works cached in $wgMiserMode
+
+Version 2.1.1 2013-07-08 (Nic Jansma)
+
+* Fixed PHP errors when run in Miser mode
