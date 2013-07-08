@@ -43,7 +43,13 @@ class UserScorePage extends QueryPage {
                 $title = Title::makeTitle( NS_USER, $result->title );
                 $userLink = $skin->makeLinkObj( $title, $title->getText() );
 
-                $contribLinkText = $result->value . " edits on " . $result->page_value . " pages";
+                $contribLinkText = $result->value . " edits";
+
+                if (isset($result->page_value)) {
+                    // Only the 'value' field is cached in Miser mode
+                    $contribLinkText .= " on " . $result->page_value . " pages";
+                }
+
                 $contribLink = Linker::linkKnown(
                                 SpecialPage::getTitleFor( 'Contributions' ),
                                 $contribLinkText,
