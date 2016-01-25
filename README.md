@@ -10,7 +10,7 @@ Create a new directory `extensions/SpecialUserScore/`, and copy all of these fil
 
 Add the following line to the end of LocalSettings.php:
 
-    require_once( "$IP/extensions/SpecialUserScore/SpecialUserScore.php" );
+    wfLoadExtension( 'SpecialUserScore' );
 
 # Version History
 
@@ -39,3 +39,9 @@ Version 2.1 2012-04-02 (Nic Jansma)
 Version 2.1.1 2013-07-08 (Nic Jansma)
 
 * Fixed PHP errors when run in Miser mode
+
+Version 2.2 2016-01-25
+
+* Extension is now only compatible with MediaWiki 1.25+
+* Messages can now be internationalized
+

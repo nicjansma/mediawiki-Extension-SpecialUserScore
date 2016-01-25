@@ -5,7 +5,7 @@
 		"Nic Jansma"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:SpecialUserScore",
-	"version": "2.1.1",
+	"version": "2.2",
 	"descriptionmsg": "userscore-desc",
 	"license-name": "GPL-2.0+",
 	"requires": {
