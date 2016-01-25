@@ -1,0 +1,25 @@
+{
+	"name": "SpecialUserScore",
+	"author": [
+		"Mathias Feindt",
+		"Nic Jansma"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:SpecialUserScore",
+	"version": "1.1.2",
+	"descriptionmsg": "userscore-desc",
+	"license-name": "GPL-2.0+",
+	"requires": {
+        	"MediaWiki": ">= 1.25.0"
+  	},
+	"AutoloadClasses": {
+		"SpecialUserScore": "SpecialUserScore_body.php"
+	},
+	"MessagesDirs": {
+		"SpecialUserScore": [
+				"i18n"
+		]
+	},
+	"SpecialPages": {
+		"UserScore": "SpecialUserScore"
+	}
+}
