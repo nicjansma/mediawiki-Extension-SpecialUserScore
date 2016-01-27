@@ -1,7 +1,7 @@
 {
 	"userscore-desc": "Special page for displaying user score as measured by number of contributions.",
 	"userscore": "User score",
-	"userscore-pages": "{{PLURAL:$1|1 page|$1 pages}}",
-	"userscore-result-contrib": "{{PLURAL:$1|1 edit|$1 edits}} on {{PLURAL:$2|1 page|$2 pages}}",
+	"userscore-result-both": "{{PLURAL:$1|1 edit|$1 edits}} on {{PLURAL:$2|1 page|$2 pages}}",
+	"userscore-result-edits": "{{PLURAL:$1|1 edit|$1 edits}}",
 	"userscore-result": "$1 ($2)"
 }
