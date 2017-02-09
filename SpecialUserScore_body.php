@@ -50,13 +50,12 @@ class SpecialUserScore extends QueryPage {
             $title = Title::makeTitle( NS_USER, $result->title );
             $userLink = Linker::linkKnown($title, $title->getText() );
 
-
             // Only value field is cached in miser mode
 
             if ( isset( $result->page_value ) ) {
                 $contribLinkText = $this->msg( 'userscore-result-both' )->params( $result->value, $result->page_value )->parse();
             } else {
-                $contribLinkText = $this->msg( 'userscore-result-edits')->params( $result->value )->parse();
+                $contribLinkText = $this->msg( 'userscore-result-edits' )->params( $result->value )->parse();
             }
 
             $contribLink = Linker::linkKnown(
