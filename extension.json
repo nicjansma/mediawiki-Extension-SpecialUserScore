@@ -2,24 +2,30 @@
 	"name": "SpecialUserScore",
 	"author": [
 		"Mathias Feindt",
-		"Nic Jansma"
+		"Nic Jansma",
+		"Lojjik Braughler"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:SpecialUserScore",
-	"version": "2.2",
+	"version": "2.3",
 	"descriptionmsg": "userscore-desc",
 	"license-name": "GPL-2.0+",
 	"requires": {
-        	"MediaWiki": ">= 1.25.0"
-  	},
+		"MediaWiki": ">= 1.25.0"
+	},
 	"AutoloadClasses": {
 		"SpecialUserScore": "SpecialUserScore_body.php"
 	},
 	"MessagesDirs": {
 		"SpecialUserScore": [
-				"i18n"
+			"i18n"
 		]
 	},
 	"SpecialPages": {
 		"UserScore": "SpecialUserScore"
+	},
+	"Hooks": {
+		"wgQueryPages": [
+			"SpecialUserScore::onwgQueryPages"
+		]
 	}
 }

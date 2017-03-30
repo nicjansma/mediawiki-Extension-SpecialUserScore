@@ -40,8 +40,11 @@ Version 2.1.1 2013-07-08 (Nic Jansma)
 
 * Fixed PHP errors when run in Miser mode
 
-Version 2.2 2016-01-25
+Version 2.2 2016-01-25 (Lojjik Braughler)
 
 * Extension is now only compatible with MediaWiki 1.25+
 * Messages can now be internationalized
 
+Version 2.3 2017-03-30 (Nic Jansma)
+
+* Works with `$wgMiserMode` enabled
