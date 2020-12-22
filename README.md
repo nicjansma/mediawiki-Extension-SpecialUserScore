@@ -48,3 +48,9 @@ Version 2.2 2016-01-25 (Lojjik Braughler)
 Version 2.3 2017-03-30 (Nic Jansma)
 
 * Works with `$wgMiserMode` enabled
+
+Version 2.3 2020-12-21 (Clint L. Johnson)
+
+* Updated SQL Query to work with [Actor Migration](https://www.mediawiki.org/wiki/Actor_migration) in MediaWiki 1.35.1
+
+
