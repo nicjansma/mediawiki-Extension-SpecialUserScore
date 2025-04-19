@@ -27,5 +27,6 @@
 		"wgQueryPages": [
 			"SpecialUserScore::onwgQueryPages"
 		]
-	}
+	},
+	"manifest_version": 1
 }
