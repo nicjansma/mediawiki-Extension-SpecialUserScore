@@ -52,3 +52,7 @@ Version 2.3 2017-03-30 (Nic Jansma)
 Version 2.4 2020-12-21 (Clint L. Johnson)
 
 * Updated SQL Query to work with [Actor Migration](https://www.mediawiki.org/wiki/Actor_migration) in MediaWiki 1.35.1
+
+Version 2.5 2025-04-23 (Nic Jansma)
+
+* Updated SQL Query to work with the final stage of the [Actor Migration](https://www.mediawiki.org/wiki/Actor_migration) that removed the `revision_actor_temp` table in MediaWiki 1.39+

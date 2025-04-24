@@ -29,13 +29,12 @@ class SpecialUserScore extends QueryPage {
 
 	function getQueryInfo() {
 		return array (
-			'tables' => array ( 'actor', 'revision', 'page', 'revision_actor_temp' ),
+			'tables' => array ( 'actor', 'revision', 'page' ),
 			'fields' => array ( 'COUNT(rev_id) as value',
 					    'COUNT(DISTINCT rev_page) as page_value',
 					    'actor_name as title',
 					    NS_USER . ' as namespace' ),
-			'conds' => array ( 'revactor_rev = rev_id',
-					   'actor_id = revactor_actor',
+			'conds' => array ( 'actor_id = rev_actor',
 					   'page_id = rev_page',
 					   'page_namespace = 0' ),
 			'options' => array( 'GROUP BY' => 'actor_name' )
